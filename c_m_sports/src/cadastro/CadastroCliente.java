@@ -43,4 +43,8 @@ public class CadastroCliente {
     public ArrayList<Cliente> getClientes() {
         return clientes;
     }
+
+    public AnaliseClientes getAnalise() {
+        return new AnaliseClientes(clientes);
+    }
 }
