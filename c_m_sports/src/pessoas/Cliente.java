@@ -4,13 +4,13 @@ public class Cliente extends Pessoa implements IPessoa{
 
     private String cpf;
     private String email;
-    private String esporteFavorito;
+    private String status;
 
-    public Cliente(String nome, int idade, String cpf, String email, String esporteFavorito) {
+    public Cliente(String nome, int idade, String cpf, String email, String status) {
         super(nome, idade);
         this.cpf = cpf;
         this.email = email;
-        this.esporteFavorito = esporteFavorito;
+        setStatus(status);
     }
 
     public String getCpf() {
@@ -29,12 +29,18 @@ public class Cliente extends Pessoa implements IPessoa{
         this.email = email;
     }
 
-    public String getEsporteFavorito() {
-        return esporteFavorito;
+    public String getStatus() {
+    return status;
     }
 
-    public void setEsporteFavorito(String esporteFavorito) {
-        this.esporteFavorito = esporteFavorito;
+   public void setStatus(String status) {
+    String s = status.toLowerCase();
+        if (s.equals("ativo") || s.equals("inativo") || s.equals("bloqueado")) {
+            this.status = status;
+        } else {
+            System.out.println("Status inválido! Use: Ativo, Inativo ou Bloqueado.");
+            this.status = "Ativo";
+        }
     }
 
     @Override
@@ -44,6 +50,6 @@ public class Cliente extends Pessoa implements IPessoa{
         System.out.println("Idade: " + getIdade());
         System.out.println("CPF: " + cpf);
         System.out.println("Email: " + email);
-        System.out.println("Esporte favorito: " + esporteFavorito);
+        System.out.println("Status: " + status);
     }
 }
