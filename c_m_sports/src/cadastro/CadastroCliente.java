@@ -1,21 +1,20 @@
 package c_m_sports.src.cadastro;
 
 import c_m_sports.src.pessoas.Cliente;
-import c_m_sports.src.excecoes.IdadeInvalidaException;
-import c_m_sports.src.excecoes.DadosInvalidosException;
-
 import java.util.ArrayList;
 
 public class CadastroCliente {
 
     private ArrayList<Cliente> clientes = new ArrayList<>();
 
-    public void incluirCliente(Cliente cliente) throws IdadeInvalidaException, DadosInvalidosException {
+    public void incluirCliente(Cliente cliente) {
         if (cliente.getIdade() < 0) {
-            throw new IdadeInvalidaException("Erro: idade não pode ser negativa!");
+            System.out.println("Erro: idade não pode ser negativa!");
+            return;
         }
         if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
-            throw new DadosInvalidosException("Erro: nome não pode ser vazio!");
+            System.out.println("Erro: nome não pode ser vazio!");
+            return;
         }
         clientes.add(cliente);
         System.out.println("Cliente cadastrado com sucesso!");
