@@ -1,6 +1,6 @@
 package c_m_sports.src.pessoas;
 
-public class Cliente extends Pessoa {
+public class Cliente extends Pessoa implements IPessoa{
 
     private String cpf;
     private String email;
